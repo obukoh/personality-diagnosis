@@ -1,0 +1,96 @@
+
+
+body{
+  background-color: #FFFFCC	;
+  font-family: fantasy,serif;
+  font-size: 1.5em;
+  margin: 3em;
+}
+
+
+p {
+   margin: 2.5em 0px; /* 上下に1em・左右に0px */
+}
+
+
+h1{
+  font-size: 2em;
+  color: #800000;
+  text-align: center;
+}
+
+h2{
+  margin-top: 4em;
+}
+
+h3{
+  text-align: center;
+}
+
+.explanation{
+  background-color:#FFFF66	;
+  border: solid 5px;
+  padding:  0.1em;
+  border-color:#000080;
+  text-align:  center;
+}
+
+.explanation_result{
+  background-color:#FF69B4	;
+  border: solid 5px;
+  padding:  0.1em;
+  border-color:#000080;
+  text-align:  center;
+}
+
+
+.button{
+  text-align:  center;
+}
+
+.title_pic{
+  text-align:  center;
+  margin-bottom: 2em;
+}
+
+.fixed_btn
+{
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  width: 20%;
+  padding: 1.5em 1em;
+  border-radius:2em;
+  border: solid 2px;
+  border-color: #000080;
+  background-color: #FFFF33;
+  font-family: fantasy,serif;
+  font-size: 0.7em
+}
+
+.fixed_btn:hover {
+    background-color: #ffc9d7;
+    }
+
+.fixed_btn_out
+{
+  position: fixed;
+  top: 7em;
+  right: 1em;
+  width: 20%;
+  padding: 1.5em 1em;
+  border-radius:2em;
+  border: solid 2px;
+  border-color: #000080;
+  background-color: #99FF33;
+  font-family: fantasy,serif;
+  font-size: 0.7em
+}
+
+.fixed_btn_out:hover {
+    background-color: #ffc9d7;
+    }
+
+.chuo{
+  text-align:  center;
+}
