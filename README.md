@@ -1,5 +1,6 @@
 # 性格診断アプリ
 
+
 ## 前書き
 こんにちは。業務としてWebAppエンジニアをかじっている者です。今回はXAMPPで性格診断アプリを作ってみました。今まで自分一人でログイン機能付きのアプリを作ったことがなかったのでいい勉強になりました。XAMPPのインストール手順に関しては別記事をご参照ください。ソースコードは[こちら](https://github.com/obukoh/personality-diagnosis)です。
 
@@ -65,6 +66,8 @@ leader	    int(11)
 
 ## ログイン
 
+<img src="https://github.com/obukoh/personality-diagnosis/blob/master/img/login.JPG" width="640">
+
 `htdocs`直下に`index.html`や`index.php`などの`index`という名前のファイルを置いた状態で、ブラウザに`http://localhost`と入力すると`index.php`が表示されます。これがログイン機能の大元になるファイルです。新規登録機能と通常ログイン機能を持たせています。新規登録処理について、メールアドレスとパスワードにはフィルターをかけている。パスワードに関しては正規表現で適切でないものをはじいています。メールアドレスに関しては`filter_var`を利用して、`RFC822`で判定しています。`RFC822`は判定がガバガバ説があるので、ビジネスで使うときは注意です。パスワードはセキュアにデータベースに保存するため`password_hash()`関数を使ってhash化しています。
 
 ```php
@@ -103,6 +106,11 @@ if (password_verify($_POST['password'], $row['password'])) {
 
 ## 性格診断
 
+<img src="https://github.com/obukoh/personality-diagnosis/blob/master/img/home.JPG" width="640">
+
+<img src="https://github.com/obukoh/personality-diagnosis/blob/master/img/question.JPG" width="640">
+
+
 index.php内のinputタグから`email`と`password`をpostするとそれを`login.php`がデータを受け取り、本人確認が済んだら`home.html`に遷移します。以下が`home.html`の質問文の箇所です。`value`には質問ごとの性格要素の値が入っています。
 
 ```html
@@ -117,6 +125,10 @@ index.php内のinputタグから`email`と`password`をpostするとそれを`lo
 ```
 
 ## 診断結果
+
+<img src="https://github.com/obukoh/personality-diagnosis/blob/master/img/result.JPG" width="640">
+
+<img src="https://github.com/obukoh/personality-diagnosis/blob/master/img/result-detail.JPG" width="640">
 
 `home.html`で入力した値は`result.php`にpostされます。以下は`value`ごとの性格要素の値を集計して、4分岐でユーザの性格を判定している箇所です。この例だと質問2と質問6はユーザの興味の対象に関する要素を決定する項目です。この2つの質問の`value`を合算してその合計でユーザの性格を4つに分類しています。
 
@@ -142,6 +154,8 @@ if($q2+$q6>8){
 ```
 
 ## 判定結果の履歴
+
+<img src="https://github.com/obukoh/personality-diagnosis/blob/master/img/result-list.JPG" width="640">
 
 `home.html`に以下のボタンを設置しています。
 
